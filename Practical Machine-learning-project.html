@@ -1,0 +1,32 @@
+trainingdatafileurl <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+testdatafileurl <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
+download.file(trainingdatafileurl,destfile = "pml-training.csv",method = "curl")
+download.file(testdatafileurl,destfile = "pml-testing.csv",method = "curl")
+
+Fortraining = read.csv("./pml-training.csv",na.strings=c("NA","#DIV/0!",""))
+Fortesting = read.csv("./pml-testing.csv",na.strings=c("NA","#DIV/0!",""))
+
+datathatcantbefound <- sapply(Fortraining, function(x) mean(is.na(x))) >= 0.9
+Train <- Fortraining[, datathatcantbefound==FALSE]
+Test  <- Fortesting[, datathatcantbefound==FALSE]
+
+Train_set <- Train[ , -(1:5)]
+Test_set  <- Test[ , -(1:5)]
+
+dim(Train_set)
+
+install.packages("rattle")
+library(rattle)
+
+install.packages("rpart")
+library("rpart")
+
+install.packages("randomForest")
+library("randomForest")
+
+set.seed(2222)
+fit_decision_tree <- rpart(classe ~ ., data = Train_set, method="class")
+fancyRpartPlot(fit_decision_tree)
+
+predict_values <- predict(fit_decision_tree, newdata = Test)
+
