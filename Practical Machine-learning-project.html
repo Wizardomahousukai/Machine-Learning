@@ -29,4 +29,4 @@ fit_decision_tree <- rpart(classe ~ ., data = Train_set, method="class")
 fancyRpartPlot(fit_decision_tree)
 
 predict_values <- predict(fit_decision_tree, newdata = Test)
-
+summary(predict_values)
