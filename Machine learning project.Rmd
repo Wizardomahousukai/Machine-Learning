@@ -43,3 +43,12 @@ fancyRpartPlot(fit_decision_tree)
 //Predict Values for each classe
 predict_values <- predict(fit_decision_tree, newdata = Test)
 
+// Predicted summary of Classes
+ summary(predict_values)
+    A                 B                   C                D                 E          
+ Min.   :0.01396   Min.   :0.0007508   Min.   :0.0000   Min.   :0.00000   Min.   :0.00000  
+ 1st Qu.:0.02394   1st Qu.:0.0630447   1st Qu.:0.0000   1st Qu.:0.05286   1st Qu.:0.09632  
+ Median :0.10744   Median :0.1265696   Median :0.0247   Median :0.10122   Median :0.11684  
+ Mean   :0.34340   Mean   :0.2041388   Mean   :0.1419   Mean   :0.18300   Mean   :0.12761  
+ 3rd Qu.:0.79290   3rd Qu.:0.4008264   3rd Qu.:0.2286   3rd Qu.:0.21628   3rd Qu.:0.14515  
+ Max.   :0.99366   Max.   :0.5465116   Max.   :0.5996   Max.   :0.69693   Max.   :0.49091  
