@@ -43,7 +43,7 @@ fancyRpartPlot(fit_decision_tree)
 //Predict Values for each classe
 predict_values <- predict(fit_decision_tree, newdata = Test)
 
-// Predicted summary of Classes
+// Predicted summary of Classes if the exercise has a measurement of about 0.34 its predicted to be a class A excercise. if it has a measurement of about 0.204, its predicted to be a class B exercise. If it has a measurement of about 0.14, its predicted to be a class C exercise. If it has a measurement of about 0.18, its predicted to be a class D exercise.If it has a measurement of about 0.127, its predicted to be a class E exercise.
  summary(predict_values)
     A                 B                   C                D                 E          
  Min.   :0.01396   Min.   :0.0007508   Min.   :0.0000   Min.   :0.00000   Min.   :0.00000  
